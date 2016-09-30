@@ -18,7 +18,7 @@ struct PizzaDeliveryService{
     }
 
     func isInRange(destination: Coordinate) -> Bool {
-        if destination.distance(to: self.location) < 5000
+        if destination.distanceTo(to: self.location) < 5000
         {
             return true
         } else {

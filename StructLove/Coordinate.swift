@@ -34,40 +34,10 @@ struct Coordinate{
     
     
     
-    var isInNorthernHemisphere: Bool {//return latitude >0} shortcut
-        if latitude > 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    var isInSouthernHemisphere: Bool {
-        if latitude < 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    var isInWesternHemisphere: Bool {
-        if longitude > 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    var isInEasternHemisphere: Bool {
-        if longitude < 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    
-    
+    var isInNorthernHemisphere: Bool {return latitude > 0}
+    var isInSouthernHemisphere: Bool {return latitude < 0}
+    var isInWesternHemisphere: Bool {return longitude > 0}
+    var isInEasternHemisphere: Bool {return longitude < 0}
     
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude
@@ -75,10 +45,10 @@ struct Coordinate{
     }
     
     
-    func distance(to coordinate: Coordinate) -> Int {
+    func distanceTo(to coordinate: Coordinate) -> Double {
         let distanceInKM = acos(sin(coordinate.latitude.radians) * sin(latitude.radians) + cos(coordinate.latitude.radians) * cos(latitude.radians) * cos(coordinate.longitude.radians-longitude.radians)) * 6371000 / 1000
         
-        return Int(distanceInKM)
+        return distanceInKM
     }
     
     

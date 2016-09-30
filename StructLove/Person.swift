@@ -22,7 +22,7 @@ struct Person {
 }
 
     mutating func eatPizza(from service: PizzaDeliveryService) -> Bool {
-        if self.isHungry && self.home.distance(to: service.location) < 5000 {
+        if self.isHungry && self.home.distanceTo(to: service.location) < 5000 {
             isHungry = false
             return true
         } else {
