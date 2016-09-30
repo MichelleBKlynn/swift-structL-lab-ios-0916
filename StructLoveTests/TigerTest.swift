@@ -12,7 +12,7 @@ import Nimble
 class TigerSpec: QuickSpec {
     override func spec() {
         
-        var tiger = Tiger(name: "Bran")
+        var tiger = Tiger(name: "Bran", isHungry: true)
         
         describe("eat()") { 
             it("should take no arguments and set isHungry to false") {
